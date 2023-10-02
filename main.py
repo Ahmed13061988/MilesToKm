@@ -2,23 +2,28 @@ import tkinter
 
 window = tkinter.Tk()
 window.minsize(width=300, height=350)
+window.config(padx=20, pady=20)
+
+user_input = tkinter.Entry(width=10)
+user_input.grid(column=3, row=1)
+
+miles_to_km = tkinter.Label(text="0")
+miles_to_km.grid(column=3, row=2)
 
 
 def calculate():
-    km = text.get() * 1.6
-    return km
+    miles = user_input.get()
+    km = float(miles) * 1.609344
+    miles_to_km.config(text=km)
 
 
-text = tkinter.Text(width=10, height=2)
-text.grid(column=3, row=1)
-label = tkinter.Label(text="Miles")
-label.grid(column=4, row=1)
-label2 = tkinter.Label(text="equals to ")
-label2.grid(column=1, row=2)
-label3 = tkinter.Label(text=0)
-label3.grid(column=3, row=2)
-label4 = tkinter.Label(text="Km")
-label4.grid(column=4, row=2)
+miles_label = tkinter.Label(text="Miles")
+miles_label.grid(column=4, row=1)
+equals_to = tkinter.Label(text="equals to ")
+equals_to.grid(column=1, row=2)
+
+km_label = tkinter.Label(text="Km")
+km_label.grid(column=4, row=2)
 button = tkinter.Button(text="Calculate", command=calculate)
 button.grid(column=3, row=3)
 
